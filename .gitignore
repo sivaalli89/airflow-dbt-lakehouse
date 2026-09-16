@@ -1,0 +1,13 @@
+# Raw data — ~1 GB of parquet/csv; the download task in the DAG re-fetches these
+airflow-dbt/include/data/
+
+# Secrets / local-only config
+.env
+airflow_settings.yaml
+
+# Python / dbt artifacts
+__pycache__/
+*.pyc
+target/
+dbt_packages/
+logs/

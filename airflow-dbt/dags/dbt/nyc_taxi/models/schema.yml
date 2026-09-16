@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: unified_trips
+    columns:
+      - name: trip_type
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['yellow', 'green', 'fhv']
+      - name: pickup_datetime
+        tests: [not_null]
+      - name: dropoff_datetime
+        tests: [not_null]
+      - name: pickup_location_id
+        tests: [not_null]
+      - name: dropoff_location_id
+        tests: [not_null]
+
+  - name: trips_final
+    columns:
+      - name: pickup_zone
+        tests: [not_null]
+      - name: dropoff_zone
+        tests: [not_null]
+      - name: day_type
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['weekday', 'weekend']

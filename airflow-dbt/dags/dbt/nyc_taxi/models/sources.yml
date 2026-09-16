@@ -1,0 +1,25 @@
+version: 2
+
+sources:
+  - name: raw
+    database: new_york_taxi
+    schema: nyc_taxi
+    tables:
+      - name: raw_yellow
+        columns:
+          - name: tpep_pickup_datetime
+            tests: [not_null]
+      - name: raw_green
+        columns:
+          - name: lpep_pickup_datetime
+            tests: [not_null]
+      - name: raw_fhv
+        columns:
+          - name: pickup_datetime
+            tests: [not_null]
+      - name: raw_zones
+        columns:
+          - name: locationid
+            tests: [unique, not_null]
+          - name: borough
+            tests: [not_null]
